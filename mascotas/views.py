@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
+from mascotas.forms import AgregarFotoMascota
 from mascotas.models import Animal
 
 
@@ -15,9 +16,14 @@ def humano(request, humano):
     return render(request, 'mascotas/index.html', {'animales': animales})
 
 
-# Esta función fue creada temporalmente para que la app corra
-def subir_foto(request):
-    return None
+def subir_foto(request, animal):
+    animal = Animal.objects.get(id=animal)
+    if request.method == 'POST':
+        form = AgregarFotoMascota(request.POST, request.FILES)
+        if form.is_valid():
+            animal.imagen = form.cleaned_data['imagen']
+            animal.save()
+    return redirect('detalles_animal', mascota=animal.id)
 
 
 def detalles_animal(request, mascota):
