@@ -11,12 +11,14 @@
         <p><b>Humano: </b> <a href="{% url 'humano' humano=mascota.humano_id %}">{{ mascota.humano }}</a></p>
         <p><b>Foto: </b></p>
         <img src="{{ mascota.imagen.url }}" class="img-fluid">
+        {% if mascota.humano.usuario_id == user.id %}
         <p>Si lo deseas, puedes cambiar la foto: </p>
         <form action="{% url 'subir_foto' animal=mascota.id %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <p><input id="id_imagen" type="file" name="imagen"></p>
             <input type="submit" value="Subir"/>
         </form>
+        {% endif %}
     </div>
 
 {% endblock %}
