@@ -207,3 +207,5 @@ modules.xml
 # En este caso no vamos a pushear las migraciones
 
 mascotas/migrations/[0-9]*
+
+.idea/*
