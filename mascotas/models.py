@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -18,6 +19,8 @@ class Especie(models.Model):
 
 
 class Humano(models.Model):
+    # En general usaríamos models.CASCADE, pero lo dejaremos así para no botar lo que tenemos hasta ahora
+    usuario = models.OneToOneField(User, models.SET_NULL, null=True)
     nombre = models.CharField(max_length=30)
 
     def __str__(self):
