@@ -19,6 +19,8 @@ def humano(request, humano):
 def subir_foto(request, animal):
     animal = Animal.objects.get(id=animal)
     if request.method == 'POST':
+        if request.user.id != animal.humano.usuario_id:
+            return HttpResponse('t piyé', status=401)
         form = AgregarFotoMascota(request.POST, request.FILES)
         if form.is_valid():
             animal.imagen = form.cleaned_data['imagen']
