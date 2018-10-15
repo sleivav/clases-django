@@ -12,6 +12,11 @@
         <p><b>Foto: </b></p>
         <img src="{{ mascota.imagen.url }}" class="img-fluid">
         <p>Si lo deseas, puedes cambiar la foto: </p>
+        <form action="{% url 'subir_foto' animal=mascota.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p><input id="id_imagen" type="file" name="imagen"></p>
+            <input type="submit" value="Subir"/>
+        </form>
     </div>
 
 {% endblock %}
