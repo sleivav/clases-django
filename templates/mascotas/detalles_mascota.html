@@ -1,1 +1,17 @@
 {% extends 'mascotas/base.html' %}
+
+{% block content %}
+    <div class="container mt-3">
+        <h1 class="text-center">Detalles de mascota</h1>
+        <hr/>
+    </div>
+    <div class="container">
+        <p><b>Nombre: </b> {{ mascota.nombre }}</p>
+        <p><b>Especie: </b> {{ mascota.especie }}</p>
+        <p><b>Humano: </b> <a href="{% url 'humano' humano=mascota.humano_id %}">{{ mascota.humano }}</a></p>
+        <p><b>Foto: </b></p>
+        <!-- Acá va la foto -->
+        <p>Si lo deseas, puedes cambiar la foto: </p>
+    </div>
+
+{% endblock %}
