@@ -10,7 +10,7 @@
         <p><b>Especie: </b> {{ mascota.especie }}</p>
         <p><b>Humano: </b> <a href="{% url 'humano' humano=mascota.humano_id %}">{{ mascota.humano }}</a></p>
         <p><b>Foto: </b></p>
-        <!-- Acá va la foto -->
+        <img src="{{ mascota.imagen.url }}" class="img-fluid">
         <p>Si lo deseas, puedes cambiar la foto: </p>
     </div>
 
