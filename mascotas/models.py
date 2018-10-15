@@ -29,6 +29,7 @@ class Animal(models.Model):
     nombre = models.CharField(max_length=30)
     salud = models.IntegerField('Puntos de salud', default=0)
     humano = models.ForeignKey(Humano, on_delete=models.SET_NULL, blank=True, null=True)
+    imagen = models.ImageField(upload_to='fotitos', default='fotitos/sin_fotito.jpg')
 
     def __str__(self):
         return '%s (%s)' % (self.nombre, self.especie.nombre)
