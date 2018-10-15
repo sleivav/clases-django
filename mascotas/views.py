@@ -20,6 +20,6 @@ def subir_foto(request):
     return None
 
 
-def detalles_animal(request, animal):
-    animal = Animal.objects.get(id=animal)
-    return render(request, 'mascotas/detalles_mascota.html', {'animal': animal})
+def detalles_animal(request, mascota):
+    animal = Animal.objects.get(id=mascota)
+    return render(request, 'mascotas/detalles_mascota.html', {'mascota': animal})

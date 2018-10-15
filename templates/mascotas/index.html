@@ -17,6 +17,7 @@
                     <div class="card-text">Comida favorita: {{ animal.especie.fruta_favorita }}</div>
                     <div class="card-text">Puntos de vida: {{ animal.salud }}</div>
                     <a href="{% url 'humano' humano=animal.humano_id %}" class="card-link">Ver Dueño</a>
+                    <a href="{% url 'detalles_animal' mascota=animal.id %}" class="card-link">Ver Detalles</a>
                 </div>
             </div>
         </div>
