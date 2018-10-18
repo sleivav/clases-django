@@ -209,3 +209,4 @@ modules.xml
 mascotas/migrations/[0-9]*
 
 .idea/*
+
